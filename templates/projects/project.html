@@ -19,7 +19,7 @@
                 {% for prj in project %}
                 <div class="content-item">                        
                             <h3>Project: {{prj.Title}}</h3>
-                            <h5>Skill used: {{prj.Skill_used}} {{prj.Employee_id}}</h5>
+                            <h5>Skill used: {{prj.Skill_used}}</h5>
                              {% if prj.Git_repo != 'copyright' %} <a href="{{prj.Git_repo}}" target="blank">GIT</a>{% else %}Copyrighted product{% endif %}
                             <p>{{prj.description}}</p>                        
                     </div>    
