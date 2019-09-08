@@ -1,1 +1,1 @@
-web: gunicorn stats.wsgi --log-file -
+web: gunicorn stk.wsgi --log-file -
