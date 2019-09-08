@@ -1,1 +1,1 @@
-web: gunicorn stk.wsgi --log-file -
+web: gunicorn shafinthiyam.wsgi --log-file -
