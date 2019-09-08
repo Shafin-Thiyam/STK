@@ -26,7 +26,7 @@ SECRET_KEY = '$31@141m40a(33et2lfj+*24=z-ue4mj*^papgif9)!gt-bbk2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com','localhost', '127.0.0.1']
 
 
 # Application definition
