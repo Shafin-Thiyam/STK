@@ -14,8 +14,7 @@ def index(request):
         msg= request.POST['message']
         contacted=contact(Name=recruiterName, email=recruiterEmail,subject=msgSub,message=msg)
         contacted.save()
-        send_mail('Re:'+msgSub,'<p>Thanks '+recruiterName+', for contacting me. Looking forward to discuss further about the position if my profile suite your requirement</p>', 'shafin.tk@outlook.com',[recruiterEmail,'shafin.thiyam@outlook.com'], fail_silently=False)
-        messages.success(request,'We contact as soon as possible')
+        send_mail('Re:'+msgSub,'Thanks '+recruiterName+', for contacting me.'+"\n"+'Looking forward to discuss further about the position if my profile suite your requirement', 'thiyam.shafin@gmail.com',[recruiterEmail,'shafin.thiyam@outlook.com'], fail_silently=False)
         messages.success(request,'Really Thankfull for contacting me')
         return redirect('/')
     else:
