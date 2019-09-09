@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com','shafinthiyam.herokuapp.com','localhost']
 
 
 # Application definition
