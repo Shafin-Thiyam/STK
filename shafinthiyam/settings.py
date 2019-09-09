@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import dj_database_url
 import dotenv
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -148,12 +149,4 @@ EMAIL_HOST_USER = os.environ.get('EMAIL')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PWD')
 EMAIL_USE_TLS = True
 
-CORS_REPLACE_HTTPS_REFERER = False
-HOST_SCHEME = "HTTP://"
-SECURITY_PROXY_SSL_HEADER = None
-SECURITY_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-SECURE_HSTS_SECONDS = None
-SECURE_HSTS_INCLUDE_SUBDOMAINS =False
-SECURE_FRAME_DENY = False
+django_heroku.settings(locals())
