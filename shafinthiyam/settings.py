@@ -24,12 +24,13 @@ if os.path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$31@141m40a(33et2lfj+*24=z-ue4mj*^papgif9)!gt-bbk2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+#'$31@141m40a(33et2lfj+*24=z-ue4mj*^papgif9)!gt-bbk2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com']
+ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com','localhost']
 
 
 # Application definition
@@ -82,12 +83,12 @@ WSGI_APPLICATION = 'shafinthiyam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'stkProfile',
-        'USER':'postgres',
-        'PASSWORD':'password',
-        'HOST':'localhost',
-        'PORT': 5433,
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 #DATABASES = {}
@@ -143,8 +144,8 @@ MEDIA_URL = '/media/'
 #email config
 EMAIL_HOST = 'smtp.live.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'shafin.tk@outlook.com'
-EMAIL_HOST_PASSWORD = '$hafinWipro313814'
+EMAIL_HOST_USER = os.environ.get('EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PWD')
 EMAIL_USE_TLS = True
 
 CORS_REPLACE_HTTPS_REFERER = False
