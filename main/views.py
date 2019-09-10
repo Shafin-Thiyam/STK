@@ -18,8 +18,8 @@ def index(request):
         contacted=contact(Name=recruiterName, email=recruiterEmail,subject=msgSub,message=msg)
         contacted.save()
 
-        message = Mail(from_email='app145060562@heroku.com', 
-			   to_emails=[recruiterEmail,'thiyam.shafin@gmail.com',],
+        message = Mail(from_email=os.environ.get('SENDGRDMAIL'), 
+			   to_emails=[recruiterEmail,os.environ.get('CCMAIL'),],
 			   subject='Re:'+msgSub,
 			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position if my profile suite your requirement',
 			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
