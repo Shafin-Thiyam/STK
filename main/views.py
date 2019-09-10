@@ -24,7 +24,7 @@ def index(request):
 			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position if my profile suite your requirement',
 			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
 
-        #message = Mail(from_email='thiyam.shafin@gmail.com', to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
+        #message = Mail(from_email=os.environ.get('CCMAIL'), to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
         try:
             sg =sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRIDMAILKEY'))
             response = sg.send(message)
@@ -33,7 +33,7 @@ def index(request):
             print(response.headers)
         except Exception as e:
             print(str(e))
-        # send_mail('Re:'+msgSub,'Thanks '+recruiterName+', for contacting me.'+"\n"+'Looking forward to discuss further about the position if my profile suite your requirement', 'thiyam.shafin@gmail.com',[recruiterEmail,'shafin.thiyam@outlook.com'], fail_silently=True)
+        # send_mail('Re:'+msgSub,'Thanks '+recruiterName+', for contacting me.'+"\n"+'Looking forward to discuss further about the position if my profile suite your requirement', os.environ.get('CCMAIL'),[recruiterEmail,os.environ.get('CCMAIL')], fail_silently=True)
         messages.success(request,'Really Thankfull for contacting me')
         return redirect('/')
     else:
