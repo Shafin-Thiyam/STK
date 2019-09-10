@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from . models import Academic, Experience, contact, PersonalDetails, Skillsets
 from projects.models import Projects
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
 
 
 def index(request):
@@ -14,7 +17,17 @@ def index(request):
         msg= request.POST['message']
         contacted=contact(Name=recruiterName, email=recruiterEmail,subject=msgSub,message=msg)
         contacted.save()
-        send_mail('Re:'+msgSub,'Thanks '+recruiterName+', for contacting me.'+"\n"+'Looking forward to discuss further about the position if my profile suite your requirement', 'thiyam.shafin@gmail.com',[recruiterEmail,'shafin.thiyam@outlook.com'], fail_silently=True)
+
+        message = Mail(from_email='thiyam.shafin@gmail.com', to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
+        try:
+            sg =sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(str(e))
+        # send_mail('Re:'+msgSub,'Thanks '+recruiterName+', for contacting me.'+"\n"+'Looking forward to discuss further about the position if my profile suite your requirement', 'thiyam.shafin@gmail.com',[recruiterEmail,'shafin.thiyam@outlook.com'], fail_silently=True)
         messages.success(request,'Really Thankfull for contacting me')
         return redirect('/')
     else:
