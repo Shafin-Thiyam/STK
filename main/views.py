@@ -18,9 +18,15 @@ def index(request):
         contacted=contact(Name=recruiterName, email=recruiterEmail,subject=msgSub,message=msg)
         contacted.save()
 
-        message = Mail(from_email='thiyam.shafin@gmail.com', to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
+        message = Mail(from_email='app145060562@heroku.com', 
+			   to_emails=[recruiterEmail,'thiyam.shafin@gmail.com',],
+			   subject='Re:'+msgSub,
+			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position if my profile suite your requirement',
+			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
+
+        #message = Mail(from_email='thiyam.shafin@gmail.com', to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
         try:
-            sg =sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
+            sg =sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRIDMAILKEY'))
             response = sg.send(message)
             print(response.status_code)
             print(response.body)
