@@ -76,7 +76,7 @@
                 <div class="content-item">
                         <!--<a href="#">-->
                         <a href="{% url 'project' exp.Employee_id %}" id="{{exp.Employee_id}}" title="Please click to know more">
-                            <small>{{exp.From}} - {% if exp.To is not none %}{{exp.To}}{% else %}Till Date{% endif %}</small>
+                            <small>{{exp.From}} - {% if exp.To is not none %}{{exp.To}}{% else %}Till Date{% endif %} <sup style="color:red">Know More</sup></small>
                             <h3>{{exp.Designation}}</h3>
                             <h4>{{exp.Company}}</h4>
                             <p>{{exp.Location}}</p>
