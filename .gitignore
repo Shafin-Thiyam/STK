@@ -3,6 +3,7 @@
 *.pot
 *.pyc
 .env
+,env
 __pycache__/
 local_settings.py
 db.sqlite3
@@ -11,6 +12,7 @@ SCHEMA.txt
 /.vscode
 venv
 /static
+/staticfiles
 /htmlcov
 /HTML
 
