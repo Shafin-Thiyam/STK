@@ -19,6 +19,7 @@ class PersonalDetails(models.Model):
     Secondary_contacts = models.CharField(max_length=20)
     About_me = models.TextField(default="Developer with diverse Experice")
     Maritial_Status = models.BooleanField(default=True)
+    Cv=  models.FileField(upload_to='uploads/CV/', default='upload/CV/CV.pdf')
     def __str__(self):
         return self.Name
 

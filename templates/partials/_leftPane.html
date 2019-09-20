@@ -10,9 +10,13 @@
                     {% if personal %}
                     {% for per in personal %}
                 <h1>{{per.Name}}</h1>
+               
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    <span class="lead">{% if Recent %}{% for r in Recent %}{{ r.Designation}}{% endfor %}{% else %}Developer{% endif %}</span>
+                </button>
+                
                 {% endfor %}
                 {% endif %}
-                <span class="lead">{% if Recent %}{% for r in Recent %}{{ r.Designation}}{% endfor %}{% else %}Developer{% endif %}</span>
                 <div class="about-text">
                         {% if personal %}
                         {% for per in personal %}
