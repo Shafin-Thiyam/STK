@@ -208,6 +208,7 @@ button:focus,
     background-color : #ffffff;
     }
 
+
 /* --------------------
  *  main Wrapper
  * -------------------*/
@@ -552,3 +553,55 @@ button:focus,
     text-align : center;
     top        : 65%;
     }
+
+
+    .notice-bg {
+        background-color : #FFC107;
+        }
+        
+        /* The actual popup */
+.content-item .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 10%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .content-item .popuptext::after {
+    content: "";
+    position: inherit;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .content-item .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+  

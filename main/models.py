@@ -34,7 +34,8 @@ class Experience(models.Model):
     To = models.DateField(blank=True,null=True)
     NoticePeriod = models.IntegerField()
     ServingNotice = models.BooleanField(default=False)
-    
+    startOfNotice = models.DateField(blank=True,null=True)
+    endOfNotice = models.DateField(blank=True,null=True)
     
 
     def __str__(self):

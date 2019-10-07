@@ -94,10 +94,13 @@
             <div class="col-md-12">
                 {% if Experience %}
                 {% for exp in Experience %}
-                <div class="content-item">
-                        <!--<a href="#">-->
-                        <a href="{% url 'project' exp.Employee_id %}" id="{{exp.Employee_id}}" title="Please click to know more">
-                            <small>{{exp.From}} - {% if exp.To is not none %}{{exp.To}}{% else %}Till Date{% endif %} <sup style="color:red">Know More</sup></small>
+                <div class="content-item {% if exp.ServingNotice %} notice-bg{% endif %}" {% if exp.ServingNotice %} onclick="myFunction()" {% endif %}>
+                    {% if exp.ServingNotice %}
+                    <span class="popuptext" id="myPopup">Serving notice probable date of getting relieved is {{ exp.endOfNotice }}</span>
+                    {% endif %}
+                            <small>{{exp.From}} - {% if exp.To is not none %}{{exp.To}}{% else %}Till Date{% endif %} 
+                                <a href="{% url 'project' exp.Employee_id %}" id="{{exp.Employee_id}}" title="Please click to know more"><sup style="color:red">Know More</sup></a>
+                            </small>
                             <h3>{{exp.Designation}}</h3>
                             <h4>{{exp.Company}}</h4>
                             <p>{{exp.Location}}</p>
