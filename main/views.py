@@ -39,11 +39,13 @@ def index(request):
         return redirect('/')
     else:
         AcademicsDetails=Academic.objects.all().order_by('-From')
-        ExperienceDetails=Experience.objects.all().order_by('-From')
-        Recent_Desg=Experience.objects.all().order_by('-From')[0:1]
+        ExperienceDetails=Experience.objects.all().filter(visible=True).order_by('-From')
+        # Recent_Desg=Experience.objects.all().order_by('-From')[0:1]
+        Recent_Desg=(Experience.objects.all().filter(visible=True).order_by('-From')[0:1])[0].Designation
         Personal=PersonalDetails.objects.all()
         SkillsetDetails=Skillsets.objects.all().order_by('-Proficiency_Percentage')
         Experience.objects.filter(ServingNotice=True, endOfNotice=str(date.today())).update(ServingNotice=False, To=date.today(), endOfNotice=None, startOfNotice=None)
+        Experience.objects.filter(From=str(date.today())).update(visible=True)
         
         profile_data={
             'personal' : Personal,

@@ -36,6 +36,7 @@ class Experience(models.Model):
     ServingNotice = models.BooleanField(default=False)
     startOfNotice = models.DateField(blank=True,null=True)
     endOfNotice = models.DateField(blank=True,null=True)
+    visible = models.BooleanField(default=True)
 
     @property
     def is_last_date(self):

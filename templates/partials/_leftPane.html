@@ -12,7 +12,8 @@
                 <h1>{{per.Name}}</h1>
                
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    <span class="lead">{% if Recent %}{% for r in Recent %}{{ r.Designation}}{% endfor %}{% else %}Developer{% endif %}</span>
+                    <!-- <span class="lead">{% if Recent %}{% for r in Recent %}{{ r.Designation}}{% endfor %}{% else %}Developer{% endif %}</span> -->
+                    <span class="lead">{% if Recent %}{{ Recent}}{% else %}Developer{% endif %}</span>
                 </button>
                 
                 {% endfor %}
