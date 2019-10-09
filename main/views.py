@@ -6,6 +6,7 @@ from . models import Academic, Experience, contact, PersonalDetails, Skillsets
 from projects.models import Projects
 import sendgrid
 import os
+from datetime import date
 from sendgrid.helpers.mail import *
 
 
@@ -42,6 +43,8 @@ def index(request):
         Recent_Desg=Experience.objects.all().order_by('-From')[0:1]
         Personal=PersonalDetails.objects.all()
         SkillsetDetails=Skillsets.objects.all().order_by('-Proficiency_Percentage')
+        Experience.objects.filter(ServingNotice=True, endOfNotice=str(date.today())).update(ServingNotice=False, To=date.today(), endOfNotice=None, startOfNotice=None)
+        
         profile_data={
             'personal' : Personal,
             'academic' : AcademicsDetails,

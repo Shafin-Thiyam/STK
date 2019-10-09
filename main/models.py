@@ -36,7 +36,14 @@ class Experience(models.Model):
     ServingNotice = models.BooleanField(default=False)
     startOfNotice = models.DateField(blank=True,null=True)
     endOfNotice = models.DateField(blank=True,null=True)
+
+    @property
+    def is_last_date(self):
+        return date.today() == self.endOfNotice
     
+    @property
+    def noOfDayLeft(self):
+        return (self.endOfNotice-date.today()).days
 
     def __str__(self):
         return self.Employee_id
