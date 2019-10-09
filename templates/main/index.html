@@ -96,7 +96,7 @@
                 {% for exp in Experience %}
                 <div class="content-item {% if exp.ServingNotice %} notice-bg{% endif %}" {% if exp.ServingNotice %} onclick="myFunction()" {% endif %}>
                     {% if exp.ServingNotice %}
-                    <span class="popuptext" id="notice_popup">Serving notice period, {{exp.noOfDayLeft}} days to get released from current organization's commitment.</span>
+                    <span class="popuptext" id="notice_popup">Serving notice period, {{exp.noOfDayLeft}} days to get released from current team's commitment.</span>
                     {% endif %}
                             <small>{{exp.From}} - {% if exp.To is not none %}{{exp.To}}{% else %}Till Date{% endif %} 
                                 <a href="{% url 'project' exp.Employee_id %}" id="{{exp.Employee_id}}" title="Please click to know more"><sup style="color:red">Know More</sup></a>
