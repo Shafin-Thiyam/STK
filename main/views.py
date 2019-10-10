@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template.loader import render_to_string
 from django.contrib import messages
 from django.core.mail import send_mail
 from . models import Academic, Experience, contact, PersonalDetails, Skillsets
@@ -22,8 +23,8 @@ def index(request):
         message = Mail(from_email=os.environ.get('SENDGRDMAIL'), 
 			   to_emails=[recruiterEmail,os.environ.get('CCMAIL'),],
 			   subject='Re:'+msgSub,
-			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position if my profile suite your requirement',
-			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
+			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position.',
+			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position.</p>')
 
         #message = Mail(from_email=os.environ.get('CCMAIL'), to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
         try:

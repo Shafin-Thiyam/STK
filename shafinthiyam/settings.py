@@ -37,6 +37,8 @@ ALLOWED_HOSTS = ['murmuring-beach-71202.herokuapp.com','shafinthiyam.herokuapp.c
 # Application definition
 
 INSTALLED_APPS = [
+    'django_inlinecss',
+    'naomi',
     'main.apps.MainConfig',
     'projects.apps.ProjectsConfig',
     'django.contrib.admin',
@@ -148,5 +150,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PWD')
 EMAIL_USE_TLS = True
+EMAIL_BACKEND = "naomi.mail.backends.naomi.NaomiBackend"
+EMAIL_FILE_PATH = MEDIA_ROOT + MEDIA_URL
 
 django_heroku.settings(locals())
