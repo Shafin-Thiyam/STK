@@ -24,7 +24,7 @@ def index(request):
 			   to_emails=[recruiterEmail,os.environ.get('CCMAIL'),],
 			   subject='Re:'+msgSub,
 			   plain_text_content='Thanks '+recruiterName+' for contacting me. Looking forward to discuss further about the position.',
-			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position.</p><p>Shafin Thiyam</p>'')
+			   html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position.</p><p>Shafin Thiyam</p>')
 
         #message = Mail(from_email=os.environ.get('CCMAIL'), to_emails=recruiterEmail, subject='Re:'+msgSub, html_content='<p>Thanks '+recruiterName+' for contacting me.</p><p>Looking forward to discuss further about the position if my profile suite your requirement</p>')
         try:
