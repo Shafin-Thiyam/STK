@@ -46,6 +46,7 @@ def index(request):
         Personal=PersonalDetails.objects.all()
         SkillsetDetails=Skillsets.objects.all().order_by('-Proficiency_Percentage')
         Experience.objects.filter(ServingNotice=True, endOfNotice=str(date.today())).update(ServingNotice=False, To=date.today(), endOfNotice=None)
+        Experience.objects.filter(ServingNotice=True).update(To=None)
         Experience.objects.filter(From=str(date.today())).update(visible=True)
         
         profile_data={
