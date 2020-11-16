@@ -28,11 +28,12 @@
                 </div>    
                 {% if personal %}
                 {% for per in personal %}
-                <ul class="social-icon">
-                    <li><a href="{{per.facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <ul class="social-icon">                    
                     <li><a href="{{per.git}}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
                     <li><a href="{{per.Linkedin}}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                     <li><a href="mailto:{{per.E_Mail}}"><i class="fa fa-envelope-open" aria-hidden="true"></i></a></li>
+                    <!-- Change the value of pre facebook to redirect to twitter handle and changed the logo to twitter logo--> 
+                    <li><a href="{{per.facebook}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>                        
                     <li><a href="skype:shafin.thiyam?call"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
                 </ul>
                 {% endfor %}
