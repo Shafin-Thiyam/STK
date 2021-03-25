@@ -98,8 +98,8 @@
                     {% if exp.ServingNotice %}      
                       {% if exp.noOfDayLeft == 1 %}
                     <span class="popuptext" id="notice_popup">{{exp.noOfDayLeft}} day left to get released from current position.</span>
-                    {% elif exp.noOfDayLeft == 0 %}
-                    <span class="popuptext" id="notice_popup">Today will be the last serving in this position.</span>
+                    {% elif exp.noOfDayLeft < 1 %}
+                    <span class="popuptext" id="notice_popup">{{exp.noOfDayLeft}} Today will be the last serving in this position.</span>
                     {% else %}
                     <span class="popuptext" id="notice_popup">{{exp.noOfDayLeft}} days left to get released from current position.</span>    
                     {% endif %}
